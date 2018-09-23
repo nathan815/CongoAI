@@ -1,7 +1,7 @@
 import Home from '../components/Home';
 import ModelInfoPage from '../components/model/ModelInfoPage';
 import Cart from '../components/cart/Cart';
-import Sell from '../components/seller/Sell';
+import SellerPage from '../components/seller/SellerPage';
 import SignIn from '../components/auth/SignIn';
 import Register from '../components/auth/Register';
 
@@ -24,7 +24,7 @@ export default [
   {
     path: '/sell',
     name: 'sell',
-    component: Sell
+    component: SellerPage
   },
   {
     path: '/models/:id',

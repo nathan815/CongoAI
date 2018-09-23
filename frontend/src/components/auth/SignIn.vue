@@ -1,4 +1,6 @@
 <script>
+  import { mapState } from 'vuex';
+
   export default {
     data() {
       return {
@@ -8,12 +10,22 @@
         },
       }
     },
+    computed: {
+      ...mapState({
+        error: state => state.auth.error,
+      }),
+    },
     methods: {
-      onSubmit() {
-        this.$store.dispatch('auth/login', { 
+      async onSubmit() {
+        await this.$store.dispatch('auth/login', { 
           email: this.form.email, 
-          password: this.form.password 
+          password: this.form.password
         });
+        this.$toasted.show('You are now signed in.', {
+          duration: 2000,
+          position: 'bottom-right'
+        });
+        this.$router.push('/');
       }
     }
   }
@@ -26,6 +38,7 @@
       </div>
     </header>
     <div class="container">
+      <b-alert variant="warning" dismissible :show="error">{{ error }}</b-alert>
       <b-form @submit.prevent="onSubmit">
         <b-form-group label="Email Address"
                       label-for="email">

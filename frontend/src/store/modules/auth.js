@@ -27,12 +27,17 @@ const actions = {
                 commit('loginSuccess');
             }
             else {
-                throw new Error(response.data);
+                throw new Error(response ? response.data : null);
             }
         } catch (err) {
             let message = 'Sorry, something went wrong.';
-            if (err.response.status === 401) {
-                message = 'Incorrect username or password.';
+            if (err.response) {
+              if(err.response.status === 401) {
+                message = 'Incorrect email or password.';
+              }
+              else if(err.response.status === 400) {
+                message = 'Email or password not correctly formatted.';
+              }
             }
             commit('loginError', message);
         }

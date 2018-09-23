@@ -35,3 +35,13 @@ footer {
 
 @import "~bootstrap/scss/bootstrap";
 
+.alert-danger {
+    color: #993c44;
+    background-color: #e8cacc;
+    border-color: #e4afb4;
+}
+.alert-warning {
+    color: #975e07;
+    background-color: #f0e1cb;
+    border-color: #e8d291;
+}

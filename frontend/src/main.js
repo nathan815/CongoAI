@@ -2,8 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index.js'
 import store from './store/index.js'
-import BootstrapVue from 'bootstrap-vue'
 
+import BootstrapVue from 'bootstrap-vue'
+import Toasted from 'vue-toasted'
+
+Vue.use(Toasted);
 Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false
