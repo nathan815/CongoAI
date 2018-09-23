@@ -22,7 +22,7 @@ const productSchema = new Schema({
   notebook: {
     type: Schema.ObjectId,
     ref: 'notebook',
-    required: true
+    required: false
   },
   modelname: {
     type: String
