@@ -36,6 +36,7 @@ const productSchema = new Schema({
   },
   price: {
     type: Number,
+    default: 0,
     get: getPrice,
     set: setPrice
   },
