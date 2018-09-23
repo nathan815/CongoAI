@@ -6,6 +6,14 @@ import { env } from '../../config'
 
 const roles = ['user', 'admin']
 
+const cartSchema = new Schema({
+  product: {
+    type: Schema.ObjectId,
+    ref: 'Product',
+    required: true
+  }
+})
+
 const userSchema = new Schema({
   email: {
     type: String,
@@ -33,6 +41,9 @@ const userSchema = new Schema({
   picture: {
     type: String,
     trim: true
+  },
+  cart: {
+    type: [cartSchema]
   }
 }, {
   timestamps: true
