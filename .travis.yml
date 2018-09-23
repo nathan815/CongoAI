@@ -10,8 +10,9 @@ addons:
     packages:
     - gcc-4.8
     - g++-4.8
+before_script: cd backend
 script:
-  - cd backend && npm test -- -i --coverage
+  - npm test -- -i --coverage
 env:
   global:
   - CXX=g++-4.8
