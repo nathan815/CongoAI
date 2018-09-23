@@ -78,6 +78,11 @@
       </div>
 
     </header>
+
+    <b-alert variant="primary" show class="mt-4 text-center">
+      <i class="fa fa-book"></i>
+      Jupyter Notebook Viewer / Generated REST API Tester
+    </b-alert>
   </div>
 </template>
 <style>
