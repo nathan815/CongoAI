@@ -12,7 +12,7 @@ addons:
     - g++-4.8
 before_install: cd backend
 script:
-  - yarn && ls && yarn test -- -i --coverage
+  - yarn && ls && yarn test -i --coverage
 env:
   global:
   - CXX=g++-4.8
