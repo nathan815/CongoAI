@@ -10,6 +10,9 @@
         },
       }
     },
+    beforeDestroy() {
+      this.$store.dispatch('auth/clearError');
+    },
     computed: {
       ...mapState({
         error: state => state.auth.error,
@@ -18,15 +21,17 @@
     methods: {
       async onSubmit() {
         try {
-          await this.$store.dispatch('auth/login', { 
+          const response = await this.$store.dispatch('auth/login', { 
             email: this.form.email, 
             password: this.form.password
           });
-          this.$toasted.show('You are now signed in.', {
-            duration: 2000,
-            position: 'bottom-right'
-          });
-          this.$router.push('/');
+          if(response.status === 200) {
+            this.$toasted.show('You are now signed in.', {
+              duration: 2000,
+              position: 'bottom-right'
+            });
+            this.$router.push('/');
+          }
         } catch(err) {
 
         }
