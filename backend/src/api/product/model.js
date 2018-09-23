@@ -17,7 +17,8 @@ const productSchema = new Schema({
   },
   reviews: {
     type: Schema.ObjectId,
-    ref: 'review'
+    ref: 'review',
+    required: false
   },
   notebook: {
     type: Schema.ObjectId,
@@ -32,6 +33,14 @@ const productSchema = new Schema({
   },
   filepath: {
     type: String
+  },
+  price: {
+    type: Number,
+    get: getPrice,
+    set: setPrice
+  },
+  producttype: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -40,6 +49,14 @@ const productSchema = new Schema({
     transform: (obj, ret) => { delete ret._id }
   }
 })
+
+function getPrice(num){
+  return (num/100).toFixed(2);
+}
+
+function setPrice(num){
+  return num*100;
+}
 
 productSchema.methods = {
   view (full) {
@@ -50,11 +67,13 @@ productSchema.methods = {
       title: this.title,
       desc: this.desc,
       category: this.category,
-      reviews: this.reviews.view(full),
-      notebook: this.notebook.view(full),
+      reviews: this.reviews,
+      notebook: this.notebook,
       modelname: this.modelname,
       port: this.port,
       filepath: this.filepath,
+      price: this.price,
+      producttype: this.producttype,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

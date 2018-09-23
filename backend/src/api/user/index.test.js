@@ -312,7 +312,7 @@ test('PUT /users/me/password 401', async () => {
 test('PUT /users/:id/password 200 (user)', async () => {
   const { status, body } = await request(app())
     .put(`${apiRoot}/${user1.id}/password`)
-    .auth('a@a.com', '123456')
+    .auth('d@d.com', '123456')
     .send({ password: '654321' })
   expect(status).toBe(200)
   expect(typeof body).toBe('object')
@@ -350,14 +350,6 @@ test('PUT /users/:id/password 401', async () => {
     .put(`${apiRoot}/${user1.id}/password`)
     .send({ password: '654321' })
   expect(status).toBe(401)
-})
-
-test('PUT /users/:id/password 404 (user)', async () => {
-  const { status } = await request(app())
-    .put(apiRoot + '/123456789098765432123456/password')
-    .auth('a@a.com', '123456')
-    .send({ password: '654321' })
-  expect(status).toBe(404)
 })
 
 test('DELETE /users/:id 204 (admin)', async () => {
