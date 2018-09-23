@@ -16,7 +16,7 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "setupTestFrameworkScriptFile": "<rootDir>/test/setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/backend/test/setup.js"
   },
   "devDependencies": {
     "apidoc": "^0.17.6",
