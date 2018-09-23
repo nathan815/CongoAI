@@ -33,6 +33,14 @@ const productSchema = new Schema({
   },
   filepath: {
     type: String
+  },
+  price: {
+    type: Number,
+    get: getPrice,
+    set: setPrice
+  },
+  producttype: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -41,6 +49,14 @@ const productSchema = new Schema({
     transform: (obj, ret) => { delete ret._id }
   }
 })
+
+function getPrice(num){
+  return (num/100).toFixed(2);
+}
+
+function setPrice(num){
+  return num*100;
+}
 
 productSchema.methods = {
   view (full) {
@@ -56,6 +72,8 @@ productSchema.methods = {
       modelname: this.modelname,
       port: this.port,
       filepath: this.filepath,
+      price: this.price,
+      producttype: this.producttype,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
