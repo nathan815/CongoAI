@@ -11,6 +11,11 @@ const reviewSchema = new Schema({
   },
   text: {
     type: String
+  },
+  product: {
+    type: Schema.ObjectId,
+    ref: 'Product',
+    required: true
   }
 }, {
   timestamps: true,
