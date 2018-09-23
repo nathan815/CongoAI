@@ -4,10 +4,10 @@ import { middleware as body } from 'bodymen'
 import { password as passwordauth, master, token } from '../../services/passport'
 import { index, showMe, show, create, update, updatePassword, destroy } from './controller'
 import { schema } from './model'
-export user, { schema } from './model'
+export User, { schema } from './model'
 
 const router = new Router()
-const { email, password, name, picture, role } = schema.tree
+const { email, password, name, picture, role, payment } = schema.tree
 
 /**
  * @api {get} /users Retrieve users
@@ -83,7 +83,7 @@ router.post('/',
  */
 router.put('/:id',
   token({ required: true }),
-  body({ name, picture }),
+  body({ name, picture, payment }),
   update)
 
 /**
