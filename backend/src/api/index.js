@@ -4,7 +4,6 @@ import auth from './auth'
 import passwordReset from './password-reset'
 import notebook from './notebook'
 import transaction from './transaction'
-import cart from './cart'
 import review from './review'
 import product from './product'
 
@@ -38,7 +37,6 @@ router.use('/auth', auth)
 router.use('/password-resets', passwordReset)
 router.use('/notebooks', notebook)
 router.use('/transactions', transaction)
-router.use('/carts', cart)
 router.use('/reviews', review)
 router.use('/products', product)
 

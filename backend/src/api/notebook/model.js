@@ -9,8 +9,10 @@ const notebookSchema = new Schema({
   html: {
     type: String
   },
-  model: {
-    type: String
+  product: {
+    type: Schema.ObjectId,
+    ref: 'product',
+    required: true
   }
 }, {
   timestamps: true,
@@ -27,7 +29,7 @@ notebookSchema.methods = {
       id: this.id,
       user: this.user.view(full),
       html: this.html,
-      model: this.model,
+      product: this.product.view(full),
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
