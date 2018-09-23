@@ -54,6 +54,7 @@
             <template slot="button-content">
               Hello, <b>{{ user.name }}</b>
             </template>
+            <b-dropdown-item to="/purchases">Purchase History</b-dropdown-item>
             <b-dropdown-item :to="`/users/${user.id}`">Profile</b-dropdown-item>
             <b-dropdown-item @click="logout">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>

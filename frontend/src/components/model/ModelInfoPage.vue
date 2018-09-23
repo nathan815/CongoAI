@@ -6,7 +6,8 @@
     data() {
       return {
         model: {},
-        purchaseError: null
+        purchaseError: null,
+        purchasing: false
       }
     },
     mounted() {
@@ -26,6 +27,7 @@
       },
       async purchase() {
         try {
+          this.purchasing = true;
           const response = await transactionApi.create(this.$route.params.id);
           if(response.status == 201) {
             this.loadData();
@@ -33,7 +35,9 @@
           }
         } catch(err) {
           this.purchaseError = "Unable to process purchase.";
-        } 
+        }  finally {
+          this.purchasing = false;
+        }
       },
       hideModal () {
         this.$refs.myModalRef.hide()
@@ -54,7 +58,8 @@
           <p v-if="model.price">Price: <b>{{ model.price }}</b></p>
           <p>Type: {{ model.producttype }}</p>
           <p>Category: {{ model.category }}</p>
-          <div v-if="isOwner">
+          <div v-if="!isOwner">
+            <b-button variant="primary"><i class="fa fa-upload"></i> Upload Data</b-button> &nbsp;
             <b-button variant="dark"><i class="fa fa-edit"></i> Edit</b-button> &nbsp;
             <b-button variant="danger"><i class="fa fa-trash"></i> Delete</b-button>
           </div>
@@ -62,10 +67,12 @@
             <b-button variant="primary" v-b-modal.purchase>Buy Now</b-button>
           </div>
           <b-modal ref="myModalRef" id="purchase" hide-footer title="Purchase Model">
-            <b-alert variant="danger" :show="purchaseError">{{ purchaseError }}</b-alert>
+            <b-alert variant="danger" :show="purchaseError" dismissible>{{ purchaseError }}</b-alert>
             <p>Do you want to purchase this model for <b>${{ model.price }}</b>?</p>
-            <b-btn class="mt-3" variant="outline-danger" @click="hideModal">Cancel</b-btn> &nbsp;
-            <b-btn class="mt-3" variant="outline-success" @click="purchase">Purchase</b-btn>
+            <b-btn class="mt-3" variant="outline-dark" @click="hideModal">Cancel</b-btn> &nbsp;
+            <b-btn class="mt-3" variant="outline-primary" @click="purchase" :disabled="purchasing">
+              {{ purchasing ? 'Please wait...' : 'Purchase' }}
+            </b-btn>
           </b-modal>
         </div>
       </div>
