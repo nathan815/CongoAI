@@ -1,6 +1,6 @@
 import Home from '../components/Home';
-import Viewproduct from '../components/product/Viewproduct';
-import cart from '../components/product/cart';
+import ViewProduct from '../components/product/ViewProduct';
+import Cart from '../components/cart/Cart';
 
 export default [
   {
