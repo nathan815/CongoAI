@@ -58,7 +58,7 @@
           <p v-if="model.price">Price: <b>{{ model.price }}</b></p>
           <p>Type: {{ model.producttype }}</p>
           <p>Category: {{ model.category }}</p>
-          <div v-if="!isOwner">
+          <div v-if="isOwner">
             <b-button variant="primary"><i class="fa fa-upload"></i> Upload Data</b-button> &nbsp;
             <b-button variant="dark"><i class="fa fa-edit"></i> Edit</b-button> &nbsp;
             <b-button variant="danger"><i class="fa fa-trash"></i> Delete</b-button>
