@@ -7,7 +7,9 @@ const transactionSchema = new Schema({
     required: true
   },
   products: {
-    type: String
+    type: Schema.ObjectId,
+    ref: 'Product',
+    required: true
   }
 }, {
   timestamps: true,
@@ -23,7 +25,7 @@ transactionSchema.methods = {
       // simple view
       id: this.id,
       user: this.user.view(full),
-      products: this.products,
+      products: this.products.view(full),
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

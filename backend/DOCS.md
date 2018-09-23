@@ -2,22 +2,15 @@
 
 
 
+- [Product](#product)
+	- [Create product](#create-product)
+	- [Delete product](#delete-product)
+	- [Retrieve product](#retrieve-product)
+	- [Retrieve products](#retrieve-products)
+	- [Update product](#update-product)
+	
 - [auth](#auth)
 	- [authenticate](#authenticate)
-	
-- [cart](#cart)
-	- [Create cart](#create-cart)
-	- [Delete cart](#delete-cart)
-	- [Retrieve cart](#retrieve-cart)
-	- [Retrieve carts](#retrieve-carts)
-	- [Update cart](#update-cart)
-	
-- [model](#model)
-	- [Create model](#create-model)
-	- [Delete model](#delete-model)
-	- [Retrieve model](#retrieve-model)
-	- [Retrieve models](#retrieve-models)
-	- [Update model](#update-model)
 	
 - [notebook](#notebook)
 	- [Create notebook](#create-notebook)
@@ -30,13 +23,6 @@
 	- [Send email](#send-email)
 	- [Submit password](#submit-password)
 	- [Verify token](#verify-token)
-	
-- [product](#product)
-	- [Create product](#create-product)
-	- [Delete product](#delete-product)
-	- [Retrieve product](#retrieve-product)
-	- [Retrieve products](#retrieve-products)
-	- [Update product](#update-product)
 	
 - [review](#review)
 	- [Create review](#create-review)
@@ -63,6 +49,94 @@
 	
 
 
+# Product
+
+## Create product
+
+
+
+	POST /products
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+| title			| 			|  <p>Product's title.</p>							|
+| desc			| 			|  <p>Product's desc.</p>							|
+| category			| 			|  <p>Product's category.</p>							|
+| reviews			| 			|  <p>Product's reviews.</p>							|
+| notebook			| 			|  <p>Product's notebook.</p>							|
+| modelname			| 			|  <p>Product's modelname.</p>							|
+| port			| 			|  <p>Product's port.</p>							|
+| filepath			| 			|  <p>Product's filepath.</p>							|
+
+## Delete product
+
+
+
+	DELETE /products/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+
+## Retrieve product
+
+
+
+	GET /products/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+
+## Retrieve products
+
+
+
+	GET /products
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+| q			| String			| **optional** <p>Query to search.</p>							|
+| page			| Number			| **optional** <p>Page number.</p>							|
+| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
+| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
+| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
+
+## Update product
+
+
+
+	PUT /products/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+| title			| 			|  <p>Product's title.</p>							|
+| desc			| 			|  <p>Product's desc.</p>							|
+| category			| 			|  <p>Product's category.</p>							|
+| reviews			| 			|  <p>Product's reviews.</p>							|
+| notebook			| 			|  <p>Product's notebook.</p>							|
+| modelname			| 			|  <p>Product's modelname.</p>							|
+| port			| 			|  <p>Product's port.</p>							|
+| filepath			| 			|  <p>Product's filepath.</p>							|
+
 # auth
 
 ## authenticate
@@ -82,162 +156,6 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Master access_token.</p>							|
-
-# cart
-
-## Create cart
-
-
-
-	POST /carts
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| products			| 			|  <p>cart's products.</p>							|
-
-## Delete cart
-
-
-
-	DELETE /carts/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-
-## Retrieve cart
-
-
-
-	GET /carts/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-
-## Retrieve carts
-
-
-
-	GET /carts
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| q			| String			| **optional** <p>Query to search.</p>							|
-| page			| Number			| **optional** <p>Page number.</p>							|
-| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
-| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
-| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
-
-## Update cart
-
-
-
-	PUT /carts/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| products			| 			|  <p>cart's products.</p>							|
-
-# model
-
-## Create model
-
-
-
-	POST /models
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| notebook			| 			|  <p>model's notebook.</p>							|
-| name			| 			|  <p>model's name.</p>							|
-| port			| 			|  <p>model's port.</p>							|
-| filepath			| 			|  <p>model's filepath.</p>							|
-| category			| 			|  <p>model's category.</p>							|
-
-## Delete model
-
-
-
-	DELETE /models/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-
-## Retrieve model
-
-
-
-	GET /models/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-
-## Retrieve models
-
-
-
-	GET /models
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| q			| String			| **optional** <p>Query to search.</p>							|
-| page			| Number			| **optional** <p>Page number.</p>							|
-| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
-| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
-| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
-
-## Update model
-
-
-
-	PUT /models/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| notebook			| 			|  <p>model's notebook.</p>							|
-| name			| 			|  <p>model's name.</p>							|
-| port			| 			|  <p>model's port.</p>							|
-| filepath			| 			|  <p>model's filepath.</p>							|
-| category			| 			|  <p>model's category.</p>							|
 
 # notebook
 
@@ -350,88 +268,6 @@
 
 	GET /password-resets/:token
 
-
-# product
-
-## Create product
-
-
-
-	POST /products
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| title			| 			|  <p>product's title.</p>							|
-| desc			| 			|  <p>product's desc.</p>							|
-| category			| 			|  <p>product's category.</p>							|
-| review			| 			|  <p>product's review.</p>							|
-| model			| 			|  <p>product's model.</p>							|
-
-## Delete product
-
-
-
-	DELETE /products/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-
-## Retrieve product
-
-
-
-	GET /products/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-
-## Retrieve products
-
-
-
-	GET /products
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| q			| String			| **optional** <p>Query to search.</p>							|
-| page			| Number			| **optional** <p>Page number.</p>							|
-| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
-| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
-| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
-
-## Update product
-
-
-
-	PUT /products/:id
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>user access token.</p>							|
-| title			| 			|  <p>product's title.</p>							|
-| desc			| 			|  <p>product's desc.</p>							|
-| category			| 			|  <p>product's category.</p>							|
-| review			| 			|  <p>product's review.</p>							|
-| model			| 			|  <p>product's model.</p>							|
 
 # review
 

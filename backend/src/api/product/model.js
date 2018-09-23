@@ -16,10 +16,13 @@ const productSchema = new Schema({
     type: String
   },
   reviews: {
-    type: String
+    type: Schema.ObjectId,
+    ref: 'review'
   },
   notebook: {
-    type: String
+    type: Schema.ObjectId,
+    ref: 'notebook',
+    required: false
   },
   modelname: {
     type: String
@@ -47,8 +50,8 @@ productSchema.methods = {
       title: this.title,
       desc: this.desc,
       category: this.category,
-      reviews: this.reviews,
-      notebook: this.notebook,
+      reviews: this.reviews.view(full),
+      notebook: this.notebook.view(full),
       modelname: this.modelname,
       port: this.port,
       filepath: this.filepath,
