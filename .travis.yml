@@ -12,7 +12,7 @@ addons:
     - g++-4.8
 before_script: cd backend
 script:
-  - npm test -- -i --coverage
+  - npm install && ls && npm test -- -i --coverage
 env:
   global:
   - CXX=g++-4.8
