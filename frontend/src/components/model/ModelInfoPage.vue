@@ -35,7 +35,7 @@
           <h1>Model: {{ model.title }}</h1>
           <p class="desc"><i>Description:</i> {{ model.desc }} </p>
           <p v-if="model.price">Price: <b>{{ model.price }}</b></p>
-          <p>Type: {{ model.type }}</p>
+          <p>Type: {{ model.producttype }}</p>
           <p>Category: {{ model.category }}</p>
           <div v-if="isOwner">
             <b-button variant="dark"><i class="fa fa-edit"></i> Edit</b-button> &nbsp;
