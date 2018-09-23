@@ -17,7 +17,8 @@ const productSchema = new Schema({
   },
   reviews: {
     type: Schema.ObjectId,
-    ref: 'review'
+    ref: 'review',
+    required: false
   },
   notebook: {
     type: Schema.ObjectId,
@@ -50,8 +51,8 @@ productSchema.methods = {
       title: this.title,
       desc: this.desc,
       category: this.category,
-      reviews: this.reviews.view(full),
-      notebook: this.notebook.view(full),
+      reviews: this.reviews,
+      notebook: this.notebook,
       modelname: this.modelname,
       port: this.port,
       filepath: this.filepath,
