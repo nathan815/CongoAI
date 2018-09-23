@@ -5,16 +5,11 @@
     data() {
       return {
         error: null,
-        types: {
-          0: 'Select one...', 
-          turiCreate: 'Turi Create', 
-          tensorflow: 'Tensorflow', 
-          keras: 'Keras'
-        },
+        types: [ 'Select one...', 'Turi Create', 'Tensorflow', 'Keras' ],
         categories: ['Select one...', 'Classifier', 'Clustering', 'Graph Analytics', 
         'Image Analysis', 'Nearest Neighbor', 'Regression', 'Text Analytics', 'Topic'],
         form: {
-          type: 0,
+          producttype: 'Select one...',
           category: 'Select one...',
           price: null,
           file: null,
@@ -24,11 +19,11 @@
     methods: {
       async onSubmit() {
         this.error = null;
-        if(this.form.type === 0) {
+        if(this.form.producttype === 'Select one...') {
           this.error = 'Please select a type';
           return;
         }
-        else if(this.form.category ===  'Select one...') {
+        else if(this.form.category === 'Select one...') {
           this.error = 'Please select a category';
           return
         }
@@ -59,7 +54,7 @@
                       label-for="modelName">
           <b-form-input id="modelName"
                         type="text"
-                        v-model="form.name"
+                        v-model="form.title"
                         required
                         placeholder="Give your model a name">
           </b-form-input>
@@ -70,7 +65,7 @@
           <b-form-select id="modelType"
                         :options="types"
                         required
-                        v-model="form.type" />
+                        v-model="form.producttype" />
         </b-form-group>
 
         <b-form-group label="Category:"
@@ -112,7 +107,7 @@
 
         <b-alert variant="dark" show class="mb-3">
           <i class="fa fa-info-circle"></i>
-          You'll be able to upload the model data, add pricing information and publish your model to the public after this step.
+          You'll be able to upload the model data and publish your model to the public after this step.
         </b-alert>
 
         <b-button type="submit" variant="primary" size="lg">Create Model</b-button>
