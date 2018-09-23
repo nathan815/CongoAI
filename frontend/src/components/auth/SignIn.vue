@@ -17,15 +17,19 @@
     },
     methods: {
       async onSubmit() {
-        await this.$store.dispatch('auth/login', { 
-          email: this.form.email, 
-          password: this.form.password
-        });
-        this.$toasted.show('You are now signed in.', {
-          duration: 2000,
-          position: 'bottom-right'
-        });
-        this.$router.push('/');
+        try {
+          await this.$store.dispatch('auth/login', { 
+            email: this.form.email, 
+            password: this.form.password
+          });
+          this.$toasted.show('You are now signed in.', {
+            duration: 2000,
+            position: 'bottom-right'
+          });
+          this.$router.push('/');
+        } catch(err) {
+
+        }
       }
     }
   }

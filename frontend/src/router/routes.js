@@ -4,12 +4,13 @@ import Cart from '../components/cart/Cart';
 import SellerPage from '../components/seller/SellerPage';
 import SignIn from '../components/auth/SignIn';
 import Register from '../components/auth/Register';
+import BrowseModels from '../components/browse/BrowseModels';
 
 export default [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
   },
   {
     path: '/signin',
@@ -25,6 +26,11 @@ export default [
     path: '/sell',
     name: 'sell',
     component: SellerPage
+  },
+  {
+    path: '/browse',
+    name: 'browse',
+    component: BrowseModels
   },
   {
     path: '/models/:id',

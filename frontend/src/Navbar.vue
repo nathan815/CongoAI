@@ -41,7 +41,7 @@
         <b-navbar-nav class="ml-auto">
 
           <b-navbar-nav v-if="isLoggedIn">
-            <b-nav-item to="/cart">My Cart <b-badge variant="light">0</b-badge></b-nav-item>
+            <!-- <b-nav-item to="/cart">My Cart <b-badge variant="light">0</b-badge></b-nav-item> -->
           </b-navbar-nav>
 
           <b-navbar-nav v-else>
