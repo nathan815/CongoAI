@@ -11,7 +11,7 @@ addons:
     - gcc-4.8
     - g++-4.8
 script:
-  - cd backend && yarn test -- -i --coverage
+  - cd backend && npm test -- -i --coverage
 env:
   global:
   - CXX=g++-4.8
