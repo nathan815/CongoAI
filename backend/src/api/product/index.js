@@ -7,7 +7,7 @@ import { schema } from './model'
 export Product, { schema } from './model'
 
 const router = new Router()
-const { title, desc, category, reviews, notebook, modelname, port, filepath } = schema.tree
+const { title, desc, category, reviews, notebook, modelname, port, filepath, price, producttype } = schema.tree
 
 /**
  * @api {post} /products Create product
@@ -30,7 +30,7 @@ const { title, desc, category, reviews, notebook, modelname, port, filepath } = 
  */
 router.post('/',
   token({ required: true }),
-  body({ title, desc, category, reviews, notebook, modelname, port, filepath }),
+  body({ title, desc, category, reviews, notebook, modelname, port, filepath, price, producttype }),
   create)
 
 /**
@@ -85,7 +85,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true }),
-  body({ title, desc, category, reviews, notebook, modelname, port, filepath }),
+  body({ title, desc, category, reviews, notebook, modelname, port, filepath, price, producttype }),
   update)
 
 /**
