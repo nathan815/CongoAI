@@ -1,11 +1,11 @@
-import { Review } from '.'
-import { User } from '../user'
+import { review } from '.'
+import { user } from '../user'
 
 let user, review
 
 beforeEach(async () => {
-  user = await User.create({ email: 'a@a.com', password: '123456' })
-  review = await Review.create({ user, rating: 'test', text: 'test' })
+  user = await user.create({ email: 'a@a.com', password: '123456' })
+  review = await review.create({ user, rating: 'test', text: 'test' })
 })
 
 describe('view', () => {

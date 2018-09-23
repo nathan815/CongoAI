@@ -3,10 +3,10 @@ import mongoose, { Schema } from 'mongoose'
 const transactionSchema = new Schema({
   user: {
     type: Schema.ObjectId,
-    ref: 'User',
+    ref: 'user',
     required: true
   },
-  Products: {
+  products: {
     type: String
   }
 }, {
@@ -23,7 +23,7 @@ transactionSchema.methods = {
       // simple view
       id: this.id,
       user: this.user.view(full),
-      Products: this.Products,
+      products: this.products,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -35,7 +35,7 @@ transactionSchema.methods = {
   }
 }
 
-const model = mongoose.model('Transaction', transactionSchema)
+const model = mongoose.model('transaction', transactionSchema)
 
 export const schema = model.schema
 export default model

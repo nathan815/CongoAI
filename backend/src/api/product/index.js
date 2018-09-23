@@ -7,10 +7,10 @@ import { schema } from './model'
 export Product, { schema } from './model'
 
 const router = new Router()
-const { title, desc, category, Review, Model } = schema.tree
+const { title, desc, category, reviews, notebook, modelname, port, filepath } = schema.tree
 
 /**
- * @api {post} /Products Create product
+ * @api {post} /products Create product
  * @apiName CreateProduct
  * @apiGroup Product
  * @apiPermission user
@@ -18,8 +18,11 @@ const { title, desc, category, Review, Model } = schema.tree
  * @apiParam title Product's title.
  * @apiParam desc Product's desc.
  * @apiParam category Product's category.
- * @apiParam Review Product's Review.
- * @apiParam Model Product's Model.
+ * @apiParam reviews Product's reviews.
+ * @apiParam notebook Product's notebook.
+ * @apiParam modelname Product's modelname.
+ * @apiParam port Product's port.
+ * @apiParam filepath Product's filepath.
  * @apiSuccess {Object} product Product's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Product not found.
@@ -27,11 +30,11 @@ const { title, desc, category, Review, Model } = schema.tree
  */
 router.post('/',
   token({ required: true }),
-  body({ title, desc, category, Review, Model }),
+  body({ title, desc, category, reviews, notebook, modelname, port, filepath }),
   create)
 
 /**
- * @api {get} /Products Retrieve products
+ * @api {get} /products Retrieve products
  * @apiName RetrieveProducts
  * @apiGroup Product
  * @apiPermission user
@@ -42,12 +45,12 @@ router.post('/',
  * @apiError 401 user access only.
  */
 router.get('/',
-  token({ required: false }),
+  token({ required: true }),
   query(),
   index)
 
 /**
- * @api {get} /Products/:id Retrieve product
+ * @api {get} /products/:id Retrieve product
  * @apiName RetrieveProduct
  * @apiGroup Product
  * @apiPermission user
@@ -58,11 +61,11 @@ router.get('/',
  * @apiError 401 user access only.
  */
 router.get('/:id',
-  token({ required: false }),
+  token({ required: true }),
   show)
 
 /**
- * @api {put} /Products/:id Update product
+ * @api {put} /products/:id Update product
  * @apiName UpdateProduct
  * @apiGroup Product
  * @apiPermission user
@@ -70,8 +73,11 @@ router.get('/:id',
  * @apiParam title Product's title.
  * @apiParam desc Product's desc.
  * @apiParam category Product's category.
- * @apiParam Review Product's Review.
- * @apiParam Model Product's Model.
+ * @apiParam reviews Product's reviews.
+ * @apiParam notebook Product's notebook.
+ * @apiParam modelname Product's modelname.
+ * @apiParam port Product's port.
+ * @apiParam filepath Product's filepath.
  * @apiSuccess {Object} product Product's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Product not found.
@@ -79,11 +85,11 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true }),
-  body({ title, desc, category, Review, Model }),
+  body({ title, desc, category, reviews, notebook, modelname, port, filepath }),
   update)
 
 /**
- * @api {delete} /Products/:id Delete product
+ * @api {delete} /products/:id Delete product
  * @apiName DeleteProduct
  * @apiGroup Product
  * @apiPermission user

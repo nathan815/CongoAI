@@ -2,16 +2,16 @@ import request from 'supertest'
 import { masterKey, apiRoot } from '../../config'
 import { signSync } from '../../services/jwt'
 import express from '../../services/express'
-import routes, { User } from '.'
+import routes, { user } from '.'
 
 const app = () => express(apiRoot, routes)
 
 let user1, user2, admin, session1, session2, adminSession
 
 beforeEach(async () => {
-  user1 = await User.create({ name: 'user', email: 'a@a.com', password: '123456' })
-  user2 = await User.create({ name: 'user', email: 'b@b.com', password: '123456' })
-  admin = await User.create({ email: 'c@c.com', password: '123456', role: 'admin' })
+  user1 = await user.create({ name: 'user', email: 'a@a.com', password: '123456' })
+  user2 = await user.create({ name: 'user', email: 'b@b.com', password: '123456' })
+  admin = await user.create({ email: 'c@c.com', password: '123456', role: 'admin' })
   session1 = signSync(user1.id)
   session2 = signSync(user2.id)
   adminSession = signSync(admin.id)
@@ -270,7 +270,7 @@ test('PUT /users/:id 404 (admin)', async () => {
 })
 
 const passwordMatch = async (password, userId) => {
-  const user = await User.findById(userId)
+  const user = await user.findById(userId)
   return !!await user.authenticate(password)
 }
 

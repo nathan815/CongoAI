@@ -1,11 +1,11 @@
-import { Notebook } from '.'
-import { User } from '../user'
+import { notebook } from '.'
+import { user } from '../user'
 
 let user, notebook
 
 beforeEach(async () => {
-  user = await User.create({ email: 'a@a.com', password: '123456' })
-  notebook = await Notebook.create({ user, html: 'test', Model: 'test' })
+  user = await user.create({ email: 'a@a.com', password: '123456' })
+  notebook = await notebook.create({ user, html: 'test', model: 'test' })
 })
 
 describe('view', () => {
@@ -16,7 +16,7 @@ describe('view', () => {
     expect(typeof view.user).toBe('object')
     expect(view.user.id).toBe(user.id)
     expect(view.html).toBe(notebook.html)
-    expect(view.Model).toBe(notebook.Model)
+    expect(view.model).toBe(notebook.model)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })
@@ -28,7 +28,7 @@ describe('view', () => {
     expect(typeof view.user).toBe('object')
     expect(view.user.id).toBe(user.id)
     expect(view.html).toBe(notebook.html)
-    expect(view.Model).toBe(notebook.Model)
+    expect(view.model).toBe(notebook.model)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })

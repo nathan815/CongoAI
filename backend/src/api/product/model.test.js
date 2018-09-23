@@ -5,7 +5,7 @@ let user, product
 
 beforeEach(async () => {
   user = await User.create({ email: 'a@a.com', password: '123456' })
-  product = await Product.create({ user, title: 'test', desc: 'test', category: 'test', Review: 'test', Model: 'test' })
+  product = await Product.create({ user, title: 'test', desc: 'test', category: 'test', reviews: 'test', notebook: 'test', modelname: 'test', port: 'test', filepath: 'test' })
 })
 
 describe('view', () => {
@@ -18,8 +18,11 @@ describe('view', () => {
     expect(view.title).toBe(product.title)
     expect(view.desc).toBe(product.desc)
     expect(view.category).toBe(product.category)
-    expect(view.Review).toBe(product.Review)
-    expect(view.Model).toBe(product.Model)
+    expect(view.reviews).toBe(product.reviews)
+    expect(view.notebook).toBe(product.notebook)
+    expect(view.modelname).toBe(product.modelname)
+    expect(view.port).toBe(product.port)
+    expect(view.filepath).toBe(product.filepath)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })
@@ -33,8 +36,11 @@ describe('view', () => {
     expect(view.title).toBe(product.title)
     expect(view.desc).toBe(product.desc)
     expect(view.category).toBe(product.category)
-    expect(view.Review).toBe(product.Review)
-    expect(view.Model).toBe(product.Model)
+    expect(view.reviews).toBe(product.reviews)
+    expect(view.notebook).toBe(product.notebook)
+    expect(view.modelname).toBe(product.modelname)
+    expect(view.port).toBe(product.port)
+    expect(view.filepath).toBe(product.filepath)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })

@@ -2,57 +2,57 @@
 
 
 
-- [Auth](#auth)
-	- [Authenticate](#authenticate)
+- [auth](#auth)
+	- [authenticate](#authenticate)
 	
-- [Cart](#cart)
+- [cart](#cart)
 	- [Create cart](#create-cart)
 	- [Delete cart](#delete-cart)
 	- [Retrieve cart](#retrieve-cart)
 	- [Retrieve carts](#retrieve-carts)
 	- [Update cart](#update-cart)
 	
-- [Model](#model)
+- [model](#model)
 	- [Create model](#create-model)
 	- [Delete model](#delete-model)
 	- [Retrieve model](#retrieve-model)
 	- [Retrieve models](#retrieve-models)
 	- [Update model](#update-model)
 	
-- [Notebook](#notebook)
+- [notebook](#notebook)
 	- [Create notebook](#create-notebook)
 	- [Delete notebook](#delete-notebook)
 	- [Retrieve notebook](#retrieve-notebook)
 	- [Retrieve notebooks](#retrieve-notebooks)
 	- [Update notebook](#update-notebook)
 	
-- [PasswordReset](#passwordreset)
+- [passwordreset](#passwordreset)
 	- [Send email](#send-email)
 	- [Submit password](#submit-password)
 	- [Verify token](#verify-token)
 	
-- [Product](#product)
+- [product](#product)
 	- [Create product](#create-product)
 	- [Delete product](#delete-product)
 	- [Retrieve product](#retrieve-product)
 	- [Retrieve products](#retrieve-products)
 	- [Update product](#update-product)
 	
-- [Review](#review)
+- [review](#review)
 	- [Create review](#create-review)
 	- [Delete review](#delete-review)
 	- [Retrieve review](#retrieve-review)
 	- [Retrieve reviews](#retrieve-reviews)
 	- [Update review](#update-review)
 	
-- [Transaction](#transaction)
+- [transaction](#transaction)
 	- [Create transaction](#create-transaction)
 	- [Delete transaction](#delete-transaction)
 	- [Retrieve transaction](#retrieve-transaction)
 	- [Retrieve transactions](#retrieve-transactions)
 	- [Update transaction](#update-transaction)
 	
-- [User](#user)
+- [user](#user)
 	- [Create user](#create-user)
 	- [Delete user](#delete-user)
 	- [Retrieve current user](#retrieve-current-user)
@@ -63,9 +63,9 @@
 	
 
 
-# Auth
+# auth
 
-## Authenticate
+## authenticate
 
 
 
@@ -75,7 +75,7 @@
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| Authorization			| String			|  <p>Basic authorization with email and password.</p>							|
+| authorization			| String			|  <p>Basic authorization with email and password.</p>							|
 
 ### Parameters
 
@@ -83,13 +83,13 @@
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Master access_token.</p>							|
 
-# Cart
+# cart
 
 ## Create cart
 
 
 
-	POST /Carts
+	POST /carts
 
 
 ### Parameters
@@ -97,13 +97,13 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| Products			| 			|  <p>Cart's Products.</p>							|
+| products			| 			|  <p>cart's products.</p>							|
 
 ## Delete cart
 
 
 
-	DELETE /Carts/:id
+	DELETE /carts/:id
 
 
 ### Parameters
@@ -116,7 +116,7 @@
 
 
 
-	GET /Carts/:id
+	GET /carts/:id
 
 
 ### Parameters
@@ -129,7 +129,7 @@
 
 
 
-	GET /Carts
+	GET /carts
 
 
 ### Parameters
@@ -147,7 +147,7 @@
 
 
 
-	PUT /Carts/:id
+	PUT /carts/:id
 
 
 ### Parameters
@@ -155,15 +155,15 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| Products			| 			|  <p>Cart's Products.</p>							|
+| products			| 			|  <p>cart's products.</p>							|
 
-# Model
+# model
 
 ## Create model
 
 
 
-	POST /Models
+	POST /models
 
 
 ### Parameters
@@ -171,17 +171,17 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| Notebook			| 			|  <p>Model's Notebook.</p>							|
-| name			| 			|  <p>Model's name.</p>							|
-| port			| 			|  <p>Model's port.</p>							|
-| filepath			| 			|  <p>Model's filepath.</p>							|
-| category			| 			|  <p>Model's category.</p>							|
+| notebook			| 			|  <p>model's notebook.</p>							|
+| name			| 			|  <p>model's name.</p>							|
+| port			| 			|  <p>model's port.</p>							|
+| filepath			| 			|  <p>model's filepath.</p>							|
+| category			| 			|  <p>model's category.</p>							|
 
 ## Delete model
 
 
 
-	DELETE /Models/:id
+	DELETE /models/:id
 
 
 ### Parameters
@@ -194,7 +194,7 @@
 
 
 
-	GET /Models/:id
+	GET /models/:id
 
 
 ### Parameters
@@ -207,7 +207,7 @@
 
 
 
-	GET /Models
+	GET /models
 
 
 ### Parameters
@@ -225,7 +225,7 @@
 
 
 
-	PUT /Models/:id
+	PUT /models/:id
 
 
 ### Parameters
@@ -233,19 +233,19 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| Notebook			| 			|  <p>Model's Notebook.</p>							|
-| name			| 			|  <p>Model's name.</p>							|
-| port			| 			|  <p>Model's port.</p>							|
-| filepath			| 			|  <p>Model's filepath.</p>							|
-| category			| 			|  <p>Model's category.</p>							|
+| notebook			| 			|  <p>model's notebook.</p>							|
+| name			| 			|  <p>model's name.</p>							|
+| port			| 			|  <p>model's port.</p>							|
+| filepath			| 			|  <p>model's filepath.</p>							|
+| category			| 			|  <p>model's category.</p>							|
 
-# Notebook
+# notebook
 
 ## Create notebook
 
 
 
-	POST /Notebooks
+	POST /notebooks
 
 
 ### Parameters
@@ -253,14 +253,14 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| html			| 			|  <p>Notebook's html.</p>							|
-| Model			| 			|  <p>Notebook's Model.</p>							|
+| html			| 			|  <p>notebook's html.</p>							|
+| model			| 			|  <p>notebook's model.</p>							|
 
 ## Delete notebook
 
 
 
-	DELETE /Notebooks/:id
+	DELETE /notebooks/:id
 
 
 ### Parameters
@@ -273,7 +273,7 @@
 
 
 
-	GET /Notebooks/:id
+	GET /notebooks/:id
 
 
 ### Parameters
@@ -286,7 +286,7 @@
 
 
 
-	GET /Notebooks
+	GET /notebooks
 
 
 ### Parameters
@@ -304,7 +304,7 @@
 
 
 
-	PUT /Notebooks/:id
+	PUT /notebooks/:id
 
 
 ### Parameters
@@ -312,10 +312,10 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| html			| 			|  <p>Notebook's html.</p>							|
-| Model			| 			|  <p>Notebook's Model.</p>							|
+| html			| 			|  <p>notebook's html.</p>							|
+| model			| 			|  <p>notebook's model.</p>							|
 
-# PasswordReset
+# passwordreset
 
 ## Send email
 
@@ -342,7 +342,7 @@
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| password			| String			|  <p>User's new password.</p>							|
+| password			| String			|  <p>user's new password.</p>							|
 
 ## Verify token
 
@@ -351,13 +351,13 @@
 	GET /password-resets/:token
 
 
-# Product
+# product
 
 ## Create product
 
 
 
-	POST /Products
+	POST /products
 
 
 ### Parameters
@@ -365,17 +365,17 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| title			| 			|  <p>Product's title.</p>							|
-| desc			| 			|  <p>Product's desc.</p>							|
-| category			| 			|  <p>Product's category.</p>							|
-| Review			| 			|  <p>Product's Review.</p>							|
-| Model			| 			|  <p>Product's Model.</p>							|
+| title			| 			|  <p>product's title.</p>							|
+| desc			| 			|  <p>product's desc.</p>							|
+| category			| 			|  <p>product's category.</p>							|
+| review			| 			|  <p>product's review.</p>							|
+| model			| 			|  <p>product's model.</p>							|
 
 ## Delete product
 
 
 
-	DELETE /Products/:id
+	DELETE /products/:id
 
 
 ### Parameters
@@ -388,7 +388,7 @@
 
 
 
-	GET /Products/:id
+	GET /products/:id
 
 
 ### Parameters
@@ -401,7 +401,7 @@
 
 
 
-	GET /Products
+	GET /products
 
 
 ### Parameters
@@ -419,7 +419,7 @@
 
 
 
-	PUT /Products/:id
+	PUT /products/:id
 
 
 ### Parameters
@@ -427,19 +427,19 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| title			| 			|  <p>Product's title.</p>							|
-| desc			| 			|  <p>Product's desc.</p>							|
-| category			| 			|  <p>Product's category.</p>							|
-| Review			| 			|  <p>Product's Review.</p>							|
-| Model			| 			|  <p>Product's Model.</p>							|
+| title			| 			|  <p>product's title.</p>							|
+| desc			| 			|  <p>product's desc.</p>							|
+| category			| 			|  <p>product's category.</p>							|
+| review			| 			|  <p>product's review.</p>							|
+| model			| 			|  <p>product's model.</p>							|
 
-# Review
+# review
 
 ## Create review
 
 
 
-	POST /Reviews
+	POST /reviews
 
 
 ### Parameters
@@ -447,14 +447,14 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| rating			| 			|  <p>Review's rating.</p>							|
-| text			| 			|  <p>Review's text.</p>							|
+| rating			| 			|  <p>review's rating.</p>							|
+| text			| 			|  <p>review's text.</p>							|
 
 ## Delete review
 
 
 
-	DELETE /Reviews/:id
+	DELETE /reviews/:id
 
 
 ### Parameters
@@ -467,7 +467,7 @@
 
 
 
-	GET /Reviews/:id
+	GET /reviews/:id
 
 
 ### Parameters
@@ -480,7 +480,7 @@
 
 
 
-	GET /Reviews
+	GET /reviews
 
 
 ### Parameters
@@ -498,7 +498,7 @@
 
 
 
-	PUT /Reviews/:id
+	PUT /reviews/:id
 
 
 ### Parameters
@@ -506,16 +506,16 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| rating			| 			|  <p>Review's rating.</p>							|
-| text			| 			|  <p>Review's text.</p>							|
+| rating			| 			|  <p>review's rating.</p>							|
+| text			| 			|  <p>review's text.</p>							|
 
-# Transaction
+# transaction
 
 ## Create transaction
 
 
 
-	POST /Transactions
+	POST /transactions
 
 
 ### Parameters
@@ -523,13 +523,13 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| Products			| 			|  <p>Transaction's Products.</p>							|
+| products			| 			|  <p>transaction's products.</p>							|
 
 ## Delete transaction
 
 
 
-	DELETE /Transactions/:id
+	DELETE /transactions/:id
 
 
 ### Parameters
@@ -542,7 +542,7 @@
 
 
 
-	GET /Transactions/:id
+	GET /transactions/:id
 
 
 ### Parameters
@@ -555,7 +555,7 @@
 
 
 
-	GET /Transactions
+	GET /transactions
 
 
 ### Parameters
@@ -573,7 +573,7 @@
 
 
 
-	PUT /Transactions/:id
+	PUT /transactions/:id
 
 
 ### Parameters
@@ -581,9 +581,9 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>user access token.</p>							|
-| Products			| 			|  <p>Transaction's Products.</p>							|
+| products			| 			|  <p>transaction's products.</p>							|
 
-# User
+# user
 
 ## Create user
 
@@ -597,11 +597,11 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Master access_token.</p>							|
-| email			| String			|  <p>User's email.</p>							|
-| password			| String			|  <p>User's password.</p>							|
-| name			| String			| **optional** <p>User's name.</p>							|
-| picture			| String			| **optional** <p>User's picture.</p>							|
-| role			| String			| **optional** <p>User's role.</p>							|
+| email			| String			|  <p>user's email.</p>							|
+| password			| String			|  <p>user's password.</p>							|
+| name			| String			| **optional** <p>user's name.</p>							|
+| picture			| String			| **optional** <p>user's picture.</p>							|
+| role			| String			| **optional** <p>user's role.</p>							|
 
 ## Delete user
 
@@ -614,7 +614,7 @@
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>User access_token.</p>							|
+| access_token			| String			|  <p>user access_token.</p>							|
 
 ## Retrieve current user
 
@@ -627,7 +627,7 @@
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>User access_token.</p>							|
+| access_token			| String			|  <p>user access_token.</p>							|
 
 ## Retrieve user
 
@@ -647,7 +647,7 @@
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>User access_token.</p>							|
+| access_token			| String			|  <p>user access_token.</p>							|
 | q			| String			| **optional** <p>Query to search.</p>							|
 | page			| Number			| **optional** <p>Page number.</p>							|
 | limit			| Number			| **optional** <p>Amount of returned items.</p>							|
@@ -664,13 +664,13 @@
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| Authorization			| String			|  <p>Basic authorization with email and password.</p>							|
+| authorization			| String			|  <p>Basic authorization with email and password.</p>							|
 
 ### Parameters
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| password			| String			|  <p>User's new password.</p>							|
+| password			| String			|  <p>user's new password.</p>							|
 
 ## Update user
 
@@ -683,8 +683,8 @@
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| access_token			| String			|  <p>User access_token.</p>							|
-| name			| String			| **optional** <p>User's name.</p>							|
-| picture			| String			| **optional** <p>User's picture.</p>							|
+| access_token			| String			|  <p>user access_token.</p>							|
+| name			| String			| **optional** <p>user's name.</p>							|
+| picture			| String			| **optional** <p>user's picture.</p>							|
 
 

@@ -1,11 +1,11 @@
-import { PasswordReset } from '.'
-import { User } from '../user'
+import { passwordreset } from '.'
+import { user } from '../user'
 
 let passwordReset
 
 beforeEach(async () => {
-  const user = await User.create({ email: 'a@a.com', password: '123456' })
-  passwordReset = await PasswordReset.create({ user })
+  const user = await user.create({ email: 'a@a.com', password: '123456' })
+  passwordReset = await passwordreset.create({ user })
 })
 
 describe('view', () => {

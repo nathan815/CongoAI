@@ -1,21 +1,21 @@
 import { success, notFound, authorOrAdmin } from '../../services/response/'
-import { Notebook } from '.'
+import { notebook } from '.'
 
 export const create = ({ user, bodymen: { body } }, res, next) =>
-  Notebook.create({ ...body, user })
+  notebook.create({ ...body, user })
     .then((notebook) => notebook.view(true))
     .then(success(res, 201))
     .catch(next)
 
 export const index = ({ querymen: { query, select, cursor } }, res, next) =>
-  Notebook.find(query, select, cursor)
+  notebook.find(query, select, cursor)
     .populate('user')
     .then((notebooks) => notebooks.map((notebook) => notebook.view()))
     .then(success(res))
     .catch(next)
 
 export const show = ({ params }, res, next) =>
-  Notebook.findById(params.id)
+  notebook.findById(params.id)
     .populate('user')
     .then(notFound(res))
     .then((notebook) => notebook ? notebook.view() : null)
@@ -23,7 +23,7 @@ export const show = ({ params }, res, next) =>
     .catch(next)
 
 export const update = ({ user, bodymen: { body }, params }, res, next) =>
-  Notebook.findById(params.id)
+  notebook.findById(params.id)
     .populate('user')
     .then(notFound(res))
     .then(authorOrAdmin(res, user, 'user'))
@@ -33,7 +33,7 @@ export const update = ({ user, bodymen: { body }, params }, res, next) =>
     .catch(next)
 
 export const destroy = ({ user, params }, res, next) =>
-  Notebook.findById(params.id)
+  notebook.findById(params.id)
     .then(notFound(res))
     .then(authorOrAdmin(res, user, 'user'))
     .then((notebook) => notebook ? notebook.remove() : null)

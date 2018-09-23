@@ -18,7 +18,7 @@
           <b-navbar-nav>
             <b-nav-item href="#">Buy</b-nav-item>
             <b-nav-item href="#">Sell</b-nav-item>
-            <b-nav-item href="#">My Cart <b-badge>0</b-badge></b-nav-item>
+            <b-nav-item href="#">My cart <b-badge>0</b-badge></b-nav-item>
           </b-navbar-nav>
 
           <b-nav-item-dropdown right>

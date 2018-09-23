@@ -1,11 +1,11 @@
-import { Transaction } from '.'
-import { User } from '../user'
+import { transaction } from '.'
+import { user } from '../user'
 
 let user, transaction
 
 beforeEach(async () => {
-  user = await User.create({ email: 'a@a.com', password: '123456' })
-  transaction = await Transaction.create({ user, Products: 'test' })
+  user = await user.create({ email: 'a@a.com', password: '123456' })
+  transaction = await transaction.create({ user, products: 'test' })
 })
 
 describe('view', () => {
@@ -15,7 +15,7 @@ describe('view', () => {
     expect(view.id).toBe(transaction.id)
     expect(typeof view.user).toBe('object')
     expect(view.user.id).toBe(user.id)
-    expect(view.Products).toBe(transaction.Products)
+    expect(view.products).toBe(transaction.products)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })
@@ -26,7 +26,7 @@ describe('view', () => {
     expect(view.id).toBe(transaction.id)
     expect(typeof view.user).toBe('object')
     expect(view.user.id).toBe(user.id)
-    expect(view.Products).toBe(transaction.Products)
+    expect(view.products).toBe(transaction.products)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })

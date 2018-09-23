@@ -2,8 +2,8 @@ import request from 'supertest'
 import nock from 'nock'
 import express from '../../services/express'
 import { masterKey, apiRoot } from '../../config'
-import { User } from '../user'
-import routes, { PasswordReset } from '.'
+import { user } from '../user'
+import routes, { passwordreset } from '.'
 
 const app = () => express(apiRoot, routes)
 
@@ -11,8 +11,8 @@ let user, passwordReset
 
 beforeEach(async () => {
   nock('https://api.sendgrid.com').post('/v3/mail/send').reply(202)
-  user = await User.create({ email: 'a@a.com', password: '123456' })
-  passwordReset = await PasswordReset.create({ user })
+  user = await user.create({ email: 'a@a.com', password: '123456' })
+  passwordReset = await passwordreset.create({ user })
 })
 
 afterEach(() => {
@@ -82,20 +82,20 @@ test('GET /password-resets/:token 404', async () => {
 })
 
 test('PUT /password-resets/:token 200', async () => {
-  await PasswordReset.create({ user })
+  await passwordreset.create({ user })
   const { status, body } = await request(app())
     .put(`${apiRoot}/${passwordReset.token}`)
     .send({ password: '654321' })
-  const [ updatedUser, passwordResets ] = await Promise.all([
-    User.findById(passwordReset.user.id),
-    PasswordReset.find({})
+  const [ updateduser, passwordResets ] = await Promise.all([
+    user.findById(passwordReset.user.id),
+    passwordreset.find({})
   ])
   expect(status).toBe(200)
   expect(typeof body).toBe('object')
   expect(body.id).toBe(user.id)
   expect(passwordResets.length).toBe(0)
-  expect(await updatedUser.authenticate('123456')).toBeFalsy()
-  expect(await updatedUser.authenticate('654321')).toBeTruthy()
+  expect(await updateduser.authenticate('123456')).toBeFalsy()
+  expect(await updateduser.authenticate('654321')).toBeTruthy()
 })
 
 test('PUT /password-resets/:token 400 - invalid password', async () => {

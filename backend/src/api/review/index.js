@@ -4,22 +4,22 @@ import { middleware as body } from 'bodymen'
 import { token } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
-export Review, { schema } from './model'
+export review, { schema } from './model'
 
 const router = new Router()
 const { rating, text } = schema.tree
 
 /**
- * @api {post} /Reviews Create review
- * @apiName CreateReview
- * @apiGroup Review
+ * @api {post} /reviews Create review
+ * @apiName Createreview
+ * @apiGroup review
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiParam rating Review's rating.
- * @apiParam text Review's text.
- * @apiSuccess {Object} review Review's data.
+ * @apiParam rating review's rating.
+ * @apiParam text review's text.
+ * @apiSuccess {Object} review review's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Review not found.
+ * @apiError 404 review not found.
  * @apiError 401 user access only.
  */
 router.post('/',
@@ -28,9 +28,9 @@ router.post('/',
   create)
 
 /**
- * @api {get} /Reviews Retrieve reviews
- * @apiName RetrieveReviews
- * @apiGroup Review
+ * @api {get} /reviews Retrieve reviews
+ * @apiName Retrievereviews
+ * @apiGroup review
  * @apiPermission user
  * @apiParam {String} access_token user access token.
  * @apiUse listParams
@@ -44,14 +44,14 @@ router.get('/',
   index)
 
 /**
- * @api {get} /Reviews/:id Retrieve review
- * @apiName RetrieveReview
- * @apiGroup Review
+ * @api {get} /reviews/:id Retrieve review
+ * @apiName Retrievereview
+ * @apiGroup review
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiSuccess {Object} review Review's data.
+ * @apiSuccess {Object} review review's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Review not found.
+ * @apiError 404 review not found.
  * @apiError 401 user access only.
  */
 router.get('/:id',
@@ -59,16 +59,16 @@ router.get('/:id',
   show)
 
 /**
- * @api {put} /Reviews/:id Update review
- * @apiName UpdateReview
- * @apiGroup Review
+ * @api {put} /reviews/:id Update review
+ * @apiName Updatereview
+ * @apiGroup review
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiParam rating Review's rating.
- * @apiParam text Review's text.
- * @apiSuccess {Object} review Review's data.
+ * @apiParam rating review's rating.
+ * @apiParam text review's text.
+ * @apiSuccess {Object} review review's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Review not found.
+ * @apiError 404 review not found.
  * @apiError 401 user access only.
  */
 router.put('/:id',
@@ -77,13 +77,13 @@ router.put('/:id',
   update)
 
 /**
- * @api {delete} /Reviews/:id Delete review
- * @apiName DeleteReview
- * @apiGroup Review
+ * @api {delete} /reviews/:id Delete review
+ * @apiName Deletereview
+ * @apiGroup review
  * @apiPermission user
  * @apiParam {String} access_token user access token.
  * @apiSuccess (Success 204) 204 No Content.
- * @apiError 404 Review not found.
+ * @apiError 404 review not found.
  * @apiError 401 user access only.
  */
 router.delete('/:id',

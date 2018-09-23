@@ -6,7 +6,6 @@ import notebook from './notebook'
 import transaction from './transaction'
 import cart from './cart'
 import review from './review'
-import model from './model'
 import product from './product'
 
 const router = new Router()
@@ -22,7 +21,7 @@ const router = new Router()
  * to access this endpoint.
  */
 /**
- * @apiDefine user User access only
+ * @apiDefine user user access only
  * You must pass `access_token` parameter or a Bearer Token authorization header
  * to access this endpoint.
  */
@@ -37,11 +36,10 @@ const router = new Router()
 router.use('/users', user)
 router.use('/auth', auth)
 router.use('/password-resets', passwordReset)
-router.use('/Notebooks', notebook)
-router.use('/Transactions', transaction)
-router.use('/Carts', cart)
-router.use('/Reviews', review)
-router.use('/Models', model)
-router.use('/Products', product)
+router.use('/notebooks', notebook)
+router.use('/transactions', transaction)
+router.use('/carts', cart)
+router.use('/reviews', review)
+router.use('/products', product)
 
 export default router

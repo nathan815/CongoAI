@@ -4,7 +4,7 @@ import { uid } from 'rand-token'
 const passwordResetSchema = new Schema({
   user: {
     type: Schema.ObjectId,
-    ref: 'User',
+    ref: 'user',
     index: true
   },
   token: {
@@ -29,7 +29,7 @@ passwordResetSchema.methods = {
   }
 }
 
-const model = mongoose.model('PasswordReset', passwordResetSchema)
+const model = mongoose.model('passwordreset', passwordResetSchema)
 
 export const schema = model.schema
 export default model

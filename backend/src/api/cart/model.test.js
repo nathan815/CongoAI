@@ -1,11 +1,11 @@
-import { Cart } from '.'
-import { User } from '../user'
+import { cart } from '.'
+import { user } from '../user'
 
 let user, cart
 
 beforeEach(async () => {
-  user = await User.create({ email: 'a@a.com', password: '123456' })
-  cart = await Cart.create({ user, Products: 'test' })
+  user = await user.create({ email: 'a@a.com', password: '123456' })
+  cart = await cart.create({ user, products: 'test' })
 })
 
 describe('view', () => {
@@ -15,7 +15,7 @@ describe('view', () => {
     expect(view.id).toBe(cart.id)
     expect(typeof view.user).toBe('object')
     expect(view.user.id).toBe(user.id)
-    expect(view.Products).toBe(cart.Products)
+    expect(view.products).toBe(cart.products)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })
@@ -26,7 +26,7 @@ describe('view', () => {
     expect(view.id).toBe(cart.id)
     expect(typeof view.user).toBe('object')
     expect(view.user.id).toBe(user.id)
-    expect(view.Products).toBe(cart.Products)
+    expect(view.products).toBe(cart.products)
     expect(view.createdAt).toBeTruthy()
     expect(view.updatedAt).toBeTruthy()
   })

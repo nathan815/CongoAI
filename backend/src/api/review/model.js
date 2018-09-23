@@ -3,7 +3,7 @@ import mongoose, { Schema } from 'mongoose'
 const reviewSchema = new Schema({
   user: {
     type: Schema.ObjectId,
-    ref: 'User',
+    ref: 'user',
     required: true
   },
   rating: {
@@ -39,7 +39,7 @@ reviewSchema.methods = {
   }
 }
 
-const model = mongoose.model('Review', reviewSchema)
+const model = mongoose.model('review', reviewSchema)
 
 export const schema = model.schema
 export default model

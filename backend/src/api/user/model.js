@@ -88,7 +88,7 @@ userSchema.statics = {
 
 userSchema.plugin(mongooseKeywords, { paths: ['email', 'name'] })
 
-const model = mongoose.model('User', userSchema)
+const model = mongoose.model('user', userSchema)
 
 export const schema = model.schema
 export default model

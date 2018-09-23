@@ -4,32 +4,32 @@ import { middleware as body } from 'bodymen'
 import { token } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
-export Cart, { schema } from './model'
+export cart, { schema } from './model'
 
 const router = new Router()
-const { Products } = schema.tree
+const { products } = schema.tree
 
 /**
- * @api {post} /Carts Create cart
- * @apiName CreateCart
- * @apiGroup Cart
+ * @api {post} /carts Create cart
+ * @apiName Createcart
+ * @apiGroup cart
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiParam Products Cart's Products.
- * @apiSuccess {Object} cart Cart's data.
+ * @apiParam products cart's products.
+ * @apiSuccess {Object} cart cart's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Cart not found.
+ * @apiError 404 cart not found.
  * @apiError 401 user access only.
  */
 router.post('/',
   token({ required: true }),
-  body({ Products }),
+  body({ products }),
   create)
 
 /**
- * @api {get} /Carts Retrieve carts
- * @apiName RetrieveCarts
- * @apiGroup Cart
+ * @api {get} /carts Retrieve carts
+ * @apiName Retrievecarts
+ * @apiGroup cart
  * @apiPermission user
  * @apiParam {String} access_token user access token.
  * @apiUse listParams
@@ -43,14 +43,14 @@ router.get('/',
   index)
 
 /**
- * @api {get} /Carts/:id Retrieve cart
- * @apiName RetrieveCart
- * @apiGroup Cart
+ * @api {get} /carts/:id Retrieve cart
+ * @apiName Retrievecart
+ * @apiGroup cart
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiSuccess {Object} cart Cart's data.
+ * @apiSuccess {Object} cart cart's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Cart not found.
+ * @apiError 404 cart not found.
  * @apiError 401 user access only.
  */
 router.get('/:id',
@@ -58,30 +58,30 @@ router.get('/:id',
   show)
 
 /**
- * @api {put} /Carts/:id Update cart
- * @apiName UpdateCart
- * @apiGroup Cart
+ * @api {put} /carts/:id Update cart
+ * @apiName Updatecart
+ * @apiGroup cart
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiParam Products Cart's Products.
- * @apiSuccess {Object} cart Cart's data.
+ * @apiParam products cart's products.
+ * @apiSuccess {Object} cart cart's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Cart not found.
+ * @apiError 404 cart not found.
  * @apiError 401 user access only.
  */
 router.put('/:id',
   token({ required: true }),
-  body({ Products }),
+  body({ products }),
   update)
 
 /**
- * @api {delete} /Carts/:id Delete cart
- * @apiName DeleteCart
- * @apiGroup Cart
+ * @api {delete} /carts/:id Delete cart
+ * @apiName Deletecart
+ * @apiGroup cart
  * @apiPermission user
  * @apiParam {String} access_token user access token.
  * @apiSuccess (Success 204) 204 No Content.
- * @apiError 404 Cart not found.
+ * @apiError 404 cart not found.
  * @apiError 401 user access only.
  */
 router.delete('/:id',

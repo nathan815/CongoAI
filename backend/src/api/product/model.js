@@ -15,10 +15,19 @@ const productSchema = new Schema({
   category: {
     type: String
   },
-  Review: {
+  reviews: {
     type: String
   },
-  Model: {
+  notebook: {
+    type: String
+  },
+  modelname: {
+    type: String
+  },
+  port: {
+    type: String
+  },
+  filepath: {
     type: String
   }
 }, {
@@ -38,8 +47,11 @@ productSchema.methods = {
       title: this.title,
       desc: this.desc,
       category: this.category,
-      Review: this.Review,
-      Model: this.Model,
+      reviews: this.reviews,
+      notebook: this.notebook,
+      modelname: this.modelname,
+      port: this.port,
+      filepath: this.filepath,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

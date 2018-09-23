@@ -1,6 +1,6 @@
 import Home from '../components/Home';
-import ViewProduct from '../components/product/ViewProduct';
-import Cart from '../components/product/Cart';
+import Viewproduct from '../components/product/Viewproduct';
+import cart from '../components/product/cart';
 
 export default [
   {
@@ -11,11 +11,11 @@ export default [
   {
     path: '/',
     name: 'cart',
-    component: Cart
+    component: cart
   },
   {
     path: '/products/:id',
     name: 'product',
-    component: ViewProduct
+    component: Viewproduct
   }
 ];

@@ -4,33 +4,33 @@ import { middleware as body } from 'bodymen'
 import { token } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
-export Notebook, { schema } from './model'
+export notebook, { schema } from './model'
 
 const router = new Router()
-const { html, Model } = schema.tree
+const { html, model } = schema.tree
 
 /**
- * @api {post} /Notebooks Create notebook
- * @apiName CreateNotebook
- * @apiGroup Notebook
+ * @api {post} /notebooks Create notebook
+ * @apiName Createnotebook
+ * @apiGroup notebook
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiParam html Notebook's html.
- * @apiParam Model Notebook's Model.
- * @apiSuccess {Object} notebook Notebook's data.
+ * @apiParam html notebook's html.
+ * @apiParam model notebook's model.
+ * @apiSuccess {Object} notebook notebook's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Notebook not found.
+ * @apiError 404 notebook not found.
  * @apiError 401 user access only.
  */
 router.post('/',
   token({ required: true }),
-  body({ html, Model }),
+  body({ html, model }),
   create)
 
 /**
- * @api {get} /Notebooks Retrieve notebooks
- * @apiName RetrieveNotebooks
- * @apiGroup Notebook
+ * @api {get} /notebooks Retrieve notebooks
+ * @apiName Retrievenotebooks
+ * @apiGroup notebook
  * @apiPermission user
  * @apiParam {String} access_token user access token.
  * @apiUse listParams
@@ -44,14 +44,14 @@ router.get('/',
   index)
 
 /**
- * @api {get} /Notebooks/:id Retrieve notebook
- * @apiName RetrieveNotebook
- * @apiGroup Notebook
+ * @api {get} /notebooks/:id Retrieve notebook
+ * @apiName Retrievenotebook
+ * @apiGroup notebook
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiSuccess {Object} notebook Notebook's data.
+ * @apiSuccess {Object} notebook notebook's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Notebook not found.
+ * @apiError 404 notebook not found.
  * @apiError 401 user access only.
  */
 router.get('/:id',
@@ -59,31 +59,31 @@ router.get('/:id',
   show)
 
 /**
- * @api {put} /Notebooks/:id Update notebook
- * @apiName UpdateNotebook
- * @apiGroup Notebook
+ * @api {put} /notebooks/:id Update notebook
+ * @apiName Updatenotebook
+ * @apiGroup notebook
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiParam html Notebook's html.
- * @apiParam Model Notebook's Model.
- * @apiSuccess {Object} notebook Notebook's data.
+ * @apiParam html notebook's html.
+ * @apiParam model notebook's model.
+ * @apiSuccess {Object} notebook notebook's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Notebook not found.
+ * @apiError 404 notebook not found.
  * @apiError 401 user access only.
  */
 router.put('/:id',
   token({ required: true }),
-  body({ html, Model }),
+  body({ html, model }),
   update)
 
 /**
- * @api {delete} /Notebooks/:id Delete notebook
- * @apiName DeleteNotebook
- * @apiGroup Notebook
+ * @api {delete} /notebooks/:id Delete notebook
+ * @apiName Deletenotebook
+ * @apiGroup notebook
  * @apiPermission user
  * @apiParam {String} access_token user access token.
  * @apiSuccess (Success 204) 204 No Content.
- * @apiError 404 Notebook not found.
+ * @apiError 404 notebook not found.
  * @apiError 401 user access only.
  */
 router.delete('/:id',

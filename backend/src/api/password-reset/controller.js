@@ -1,12 +1,12 @@
 import { success, notFound } from '../../services/response/'
 import { sendMail } from '../../services/sendgrid'
-import { PasswordReset } from '.'
-import { User } from '../user'
+import { passwordreset } from '.'
+import { user } from '../user'
 
 export const create = ({ bodymen: { body: { email, link } } }, res, next) =>
-  User.findOne({ email })
+  user.findOne({ email })
     .then(notFound(res))
-    .then((user) => user ? PasswordReset.create({ user }) : null)
+    .then((user) => user ? passwordreset.create({ user }) : null)
     .then((reset) => {
       if (!reset) return null
       const { user, token } = reset
@@ -25,7 +25,7 @@ export const create = ({ bodymen: { body: { email, link } } }, res, next) =>
     .catch(next)
 
 export const show = ({ params: { token } }, res, next) =>
-  PasswordReset.findOne({ token })
+  passwordreset.findOne({ token })
     .populate('user')
     .then(notFound(res))
     .then((reset) => reset ? reset.view(true) : null)
@@ -33,14 +33,14 @@ export const show = ({ params: { token } }, res, next) =>
     .catch(next)
 
 export const update = ({ params: { token }, bodymen: { body: { password } } }, res, next) => {
-  return PasswordReset.findOne({ token })
+  return passwordreset.findOne({ token })
     .populate('user')
     .then(notFound(res))
     .then((reset) => {
       if (!reset) return null
       const { user } = reset
       return user.set({ password }).save()
-        .then(() => PasswordReset.remove({ user }))
+        .then(() => passwordreset.remove({ user }))
         .then(() => user.view(true))
     })
     .then(success(res))

@@ -1,6 +1,6 @@
 import request from 'supertest'
 import { masterKey, apiRoot } from '../../config'
-import { User } from '../user'
+import { user } from '../user'
 import { verify } from '../../services/jwt'
 import express from '../../services/express'
 import routes from '.'
@@ -10,7 +10,7 @@ const app = () => express(apiRoot, routes)
 let user
 
 beforeEach(async () => {
-  user = await User.create({ email: 'a@a.com', password: '123456' })
+  user = await user.create({ email: 'a@a.com', password: '123456' })
 })
 
 test('POST /auth 201 (master)', async () => {

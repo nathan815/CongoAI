@@ -3,13 +3,13 @@ import mongoose, { Schema } from 'mongoose'
 const notebookSchema = new Schema({
   user: {
     type: Schema.ObjectId,
-    ref: 'User',
+    ref: 'user',
     required: true
   },
   html: {
     type: String
   },
-  Model: {
+  model: {
     type: String
   }
 }, {
@@ -27,7 +27,7 @@ notebookSchema.methods = {
       id: this.id,
       user: this.user.view(full),
       html: this.html,
-      Model: this.Model,
+      model: this.model,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -39,7 +39,7 @@ notebookSchema.methods = {
   }
 }
 
-const model = mongoose.model('Notebook', notebookSchema)
+const model = mongoose.model('notebook', notebookSchema)
 
 export const schema = model.schema
 export default model

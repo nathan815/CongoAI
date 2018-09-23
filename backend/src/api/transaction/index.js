@@ -4,32 +4,32 @@ import { middleware as body } from 'bodymen'
 import { token } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
-export Transaction, { schema } from './model'
+export transaction, { schema } from './model'
 
 const router = new Router()
-const { Products } = schema.tree
+const { products } = schema.tree
 
 /**
- * @api {post} /Transactions Create transaction
- * @apiName CreateTransaction
- * @apiGroup Transaction
+ * @api {post} /transactions Create transaction
+ * @apiName Createtransaction
+ * @apiGroup transaction
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiParam Products Transaction's Products.
- * @apiSuccess {Object} transaction Transaction's data.
+ * @apiParam products transaction's products.
+ * @apiSuccess {Object} transaction transaction's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Transaction not found.
+ * @apiError 404 transaction not found.
  * @apiError 401 user access only.
  */
 router.post('/',
   token({ required: true }),
-  body({ Products }),
+  body({ products }),
   create)
 
 /**
- * @api {get} /Transactions Retrieve transactions
- * @apiName RetrieveTransactions
- * @apiGroup Transaction
+ * @api {get} /transactions Retrieve transactions
+ * @apiName Retrievetransactions
+ * @apiGroup transaction
  * @apiPermission user
  * @apiParam {String} access_token user access token.
  * @apiUse listParams
@@ -43,14 +43,14 @@ router.get('/',
   index)
 
 /**
- * @api {get} /Transactions/:id Retrieve transaction
- * @apiName RetrieveTransaction
- * @apiGroup Transaction
+ * @api {get} /transactions/:id Retrieve transaction
+ * @apiName Retrievetransaction
+ * @apiGroup transaction
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiSuccess {Object} transaction Transaction's data.
+ * @apiSuccess {Object} transaction transaction's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Transaction not found.
+ * @apiError 404 transaction not found.
  * @apiError 401 user access only.
  */
 router.get('/:id',
@@ -58,30 +58,30 @@ router.get('/:id',
   show)
 
 /**
- * @api {put} /Transactions/:id Update transaction
- * @apiName UpdateTransaction
- * @apiGroup Transaction
+ * @api {put} /transactions/:id Update transaction
+ * @apiName Updatetransaction
+ * @apiGroup transaction
  * @apiPermission user
  * @apiParam {String} access_token user access token.
- * @apiParam Products Transaction's Products.
- * @apiSuccess {Object} transaction Transaction's data.
+ * @apiParam products transaction's products.
+ * @apiSuccess {Object} transaction transaction's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Transaction not found.
+ * @apiError 404 transaction not found.
  * @apiError 401 user access only.
  */
 router.put('/:id',
   token({ required: true }),
-  body({ Products }),
+  body({ products }),
   update)
 
 /**
- * @api {delete} /Transactions/:id Delete transaction
- * @apiName DeleteTransaction
- * @apiGroup Transaction
+ * @api {delete} /transactions/:id Delete transaction
+ * @apiName Deletetransaction
+ * @apiGroup transaction
  * @apiPermission user
  * @apiParam {String} access_token user access token.
  * @apiSuccess (Success 204) 204 No Content.
- * @apiError 404 Transaction not found.
+ * @apiError 404 transaction not found.
  * @apiError 401 user access only.
  */
 router.delete('/:id',
