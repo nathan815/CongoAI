@@ -1,6 +1,7 @@
 import Home from '../components/Home';
-import ViewProduct from '../components/product/ViewProduct';
+import ModelInfoPage from '../components/model/ModelInfoPage';
 import Cart from '../components/cart/Cart';
+import Sell from '../components/seller/Sell';
 
 export default [
   {
@@ -9,13 +10,18 @@ export default [
     component: Home
   },
   {
-    path: '/',
+    path: '/cart',
     name: 'cart',
-    component: cart
+    component: Cart
   },
   {
-    path: '/products/:id',
-    name: 'product',
-    component: Viewproduct
+    path: '/sell',
+    name: 'sell',
+    component: Sell
+  },
+  {
+    path: '/models/:id',
+    name: 'model',
+    component: ModelInfoPage
   }
 ];
