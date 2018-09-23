@@ -3,7 +3,7 @@ import mongoose, { Schema } from 'mongoose'
 const productSchema = new Schema({
   user: {
     type: Schema.ObjectId,
-    ref: 'user',
+    ref: 'User',
     required: true
   },
   title: {
@@ -51,12 +51,12 @@ const productSchema = new Schema({
   }
 })
 
-function getPrice(num){
-  return (num/100).toFixed(2);
+function getPrice (num) {
+  return (num / 100).toFixed(2)
 }
 
-function setPrice(num){
-  return num*100;
+function setPrice (num) {
+  return num * 100
 }
 
 productSchema.methods = {
