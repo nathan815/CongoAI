@@ -1,6 +1,6 @@
 import { success, notFound, authorOrAdmin } from '../../services/response/'
 import { transaction } from '.'
-import { axios } from 'axios'
+import axios from 'axios'
 
 export const create = ({ user, bodymen: { body } }, res, next) =>
   transaction.create({ ...body, user })
