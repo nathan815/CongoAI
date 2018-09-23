@@ -30,7 +30,7 @@
           <b-nav-item to="/sell">Sell</b-nav-item>
         </b-navbar-nav>
 
-        <b-nav-form>
+        <b-nav-form @submit.prevent="">
           <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search models..." />
         </b-nav-form>
 
