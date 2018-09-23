@@ -20,7 +20,7 @@
       </div>
     </header>
     <div class="container">
-      <b-row>
+      <b-row v-if="isLoggedIn">
         <b-col>
           <YourModels />
         </b-col>
@@ -28,6 +28,9 @@
           <UploadModel />  
         </b-col>
       </b-row>
+      <div v-else>
+        <b-alert variant="dark" size="lg" show>Sign in or register to sell your machine learning models.</b-alert>
+      </div>
     </div>
   </div>
 </template>

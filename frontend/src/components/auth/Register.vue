@@ -18,16 +18,20 @@
     },
     methods: {
       async onSubmit() {
-        await this.$store.dispatch('register/createAccount', {
-          email: this.form.email,
-          password: this.form.password,
-          name: this.form.name,
-        });
-        this.$toasted.show('Welcome to Congo AI! You may now sign in.', {
-          duration: 4000,
-          position: 'bottom-right'
-        });
-        this.$router.push('/');
+        try { 
+          await this.$store.dispatch('register/createAccount', {
+            email: this.form.email,
+            password: this.form.password,
+            name: this.form.name,
+          });
+          this.$toasted.show('Welcome to Congo AI! You may now sign in.', {
+            duration: 4000,
+            position: 'bottom-right'
+          });
+          this.$router.push('/');
+        } catch(err) {
+
+        }
       }
     }
   }

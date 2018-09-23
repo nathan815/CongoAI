@@ -23,6 +23,14 @@ body {
   padding: 5px 0;
   margin: 0 0 20px;
 }
+.models {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.models .card {
+  margin-bottom: 40px;
+}
 
 footer {
   text-align: center;
