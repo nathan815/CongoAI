@@ -22,10 +22,10 @@
       async onSubmit() {
         try {
           const response = await this.$store.dispatch('auth/login', { 
-            email: this.form.email, 
+            email: this.form.email,
             password: this.form.password
           });
-          if(response.status === 200) {
+          if(!this.error) {
             this.$toasted.show('You are now signed in.', {
               duration: 2000,
               position: 'bottom-right'
