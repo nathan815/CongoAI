@@ -10,7 +10,7 @@ addons:
     packages:
     - gcc-4.8
     - g++-4.8
-before_script: cd backend
+before_install: cd backend
 script:
   - npm install && ls && npm test -- -i --coverage
 env:
