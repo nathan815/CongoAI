@@ -1,24 +1,24 @@
 import { success, notFound } from '../../services/response/'
-import { user } from '.'
+import { User } from '.'
 
 export const index = ({ querymen: { query, select, cursor } }, res, next) =>
-  user.find(query, select, cursor)
+  User.find(query, select, cursor)
     .then((users) => users.map((user) => user.view()))
     .then(success(res))
     .catch(next)
 
 export const show = ({ params }, res, next) =>
-  user.findById(params.id)
+  User.findById(params.id)
     .then(notFound(res))
     .then((user) => user ? user.view() : null)
     .then(success(res))
     .catch(next)
 
 export const showMe = ({ user }, res) =>
-  res.json(user.view(true))
+  res.json(user)
 
 export const create = ({ bodymen: { body } }, res, next) =>
-  user.create(body)
+  User.create(body)
     .then((user) => user.view(true))
     .then(success(res, 201))
     .catch((err) => {
@@ -35,7 +35,7 @@ export const create = ({ bodymen: { body } }, res, next) =>
     })
 
 export const update = ({ bodymen: { body }, params, user }, res, next) =>
-  user.findById(params.id === 'me' ? user.id : params.id)
+  User.findById(params.id === 'me' ? user.id : params.id)
     .then(notFound(res))
     .then((result) => {
       if (!result) return null
@@ -56,7 +56,7 @@ export const update = ({ bodymen: { body }, params, user }, res, next) =>
     .catch(next)
 
 export const updatePassword = ({ bodymen: { body }, params, user }, res, next) =>
-  user.findById(params.id === 'me' ? user.id : params.id)
+  User.findById(params.id === 'me' ? user.id : params.id)
     .then(notFound(res))
     .then((result) => {
       if (!result) return null
@@ -77,7 +77,7 @@ export const updatePassword = ({ bodymen: { body }, params, user }, res, next) =
     .catch(next)
 
 export const destroy = ({ params }, res, next) =>
-  user.findById(params.id)
+  User.findById(params.id)
     .then(notFound(res))
     .then((user) => user ? user.remove() : null)
     .then(success(res, 204))
