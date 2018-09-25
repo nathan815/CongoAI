@@ -6,10 +6,10 @@ const state = {
 };
 
 const actions = {
-    async createAccount({ commit }, { email, password }) {
+    async createAccount({ commit }, data) {
         commit('registerRequest');
         try {
-            const response = await authApi.authenticate(email, password);
+            const response = await authApi.register(data);
             if (response.status === 201) {
                 commit('registerSuccess');
             }

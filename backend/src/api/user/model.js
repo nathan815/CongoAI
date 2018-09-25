@@ -9,7 +9,14 @@ const roles = ['user', 'admin']
 const cartSchema = new Schema({
   product: {
     type: Schema.ObjectId,
-    ref: 'Product',
+    ref: 'Product'
+  }
+})
+
+const paymentSchema = new Schema({
+  payment: {
+    type: Schema.ObjectId,
+    ref: 'Payment',
     required: true
   }
 })
@@ -42,8 +49,26 @@ const userSchema = new Schema({
     type: String,
     trim: true
   },
+  address: {
+    type: String
+  },
+  city: {
+    type: String
+  },
+  state: {
+    type: String
+  },
+  zip: {
+    type: String
+  },
+  country: {
+    type: String
+  },
   cart: {
     type: [cartSchema]
+  },
+  payment: {
+    type: [paymentSchema]
   }
 }, {
   timestamps: true
@@ -99,7 +124,7 @@ userSchema.statics = {
 
 userSchema.plugin(mongooseKeywords, { paths: ['email', 'name'] })
 
-const model = mongoose.model('user', userSchema)
+const model = mongoose.model('User', userSchema)
 
 export const schema = model.schema
 export default model

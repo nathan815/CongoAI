@@ -1,17 +1,28 @@
 <script>
   import ModelCard from './model/ModelCard';
+  import productApi from '../api/product';
 
   export default {
     components: { ModelCard },
+    mounted() {
+      this.loadModels();
+    },
     data() {
       return {
-        models: [
-          {
-            id: 1,
-            name: 'Model 1',
-            description: 'Some cool model',
+        models: []
+      }
+    },
+    methods: {
+      async loadModels() {
+        try {
+          const response = await productApi.getProducts();
+          if(response.status === 200) {
+            this.models = response.data.slice(0,3);
+            console.log(this.models);
           }
-        ]
+        } catch(err) {
+
+        }
       }
     }
   }
@@ -29,7 +40,7 @@
       </div>
     </div>
     <div class="container">
-      <h3>Popular Models</h3>
+      <h3>Newest Postings</h3>
       <ModelCard v-for="model in models" :model="model" />
     </div>
   </div>

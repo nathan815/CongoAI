@@ -11,6 +11,9 @@
         },
       }
     },
+    beforeDestroy() {
+      this.$store.dispatch('register/clearError');
+    },
     computed: {
       ...mapState({
         error: state => state.register.error,
@@ -24,11 +27,13 @@
             password: this.form.password,
             name: this.form.name,
           });
-          this.$toasted.show('Welcome to Congo AI! You may now sign in.', {
-            duration: 4000,
-            position: 'bottom-right'
-          });
-          this.$router.push('/');
+          if(!this.error) {
+            this.$toasted.show('Welcome to Congo AI! You may now sign in.', {
+              duration: 4000,
+              position: 'bottom-right'
+            });
+            this.$router.push('/signin');
+          }
         } catch(err) {
 
         }

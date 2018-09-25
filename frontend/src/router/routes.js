@@ -5,6 +5,7 @@ import SellerPage from '../components/seller/SellerPage';
 import SignIn from '../components/auth/SignIn';
 import Register from '../components/auth/Register';
 import BrowseModels from '../components/browse/BrowseModels';
+import Transactions from '../components/Transactions';
 
 export default [
   {
@@ -36,5 +37,10 @@ export default [
     path: '/models/:id',
     name: 'model',
     component: ModelInfoPage
-  }
+  },
+  {
+    path: '/purchases',
+    name: 'purchases',
+    component: Transactions
+  },
 ];

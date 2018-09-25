@@ -37,6 +37,7 @@
     </header>
     <div class="container models">
       <ModelCard v-for="model in models" :model="model" />
+      <b-alert variant="dark" :show="!models || models.length === 0">There are no models to display. Create one to sell now!</b-alert>
     </div>
   </div>
 </template>

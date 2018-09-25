@@ -6,6 +6,7 @@ import notebook from './notebook'
 import transaction from './transaction'
 import review from './review'
 import product from './product'
+import payment from './payment'
 
 const router = new Router()
 
@@ -39,5 +40,6 @@ router.use('/notebooks', notebook)
 router.use('/transactions', transaction)
 router.use('/reviews', review)
 router.use('/products', product)
+router.use('/payments', payment)
 
 export default router

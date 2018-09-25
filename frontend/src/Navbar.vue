@@ -30,7 +30,7 @@
           <b-nav-item to="/sell">Sell</b-nav-item>
         </b-navbar-nav>
 
-        <b-nav-form>
+        <b-nav-form @submit.prevent="">
           <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search models..." />
         </b-nav-form>
 
@@ -54,6 +54,7 @@
             <template slot="button-content">
               Hello, <b>{{ user.name }}</b>
             </template>
+            <b-dropdown-item to="/purchases">Purchase History</b-dropdown-item>
             <b-dropdown-item :to="`/users/${user.id}`">Profile</b-dropdown-item>
             <b-dropdown-item @click="logout">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>

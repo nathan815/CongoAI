@@ -1,15 +1,19 @@
 import mongoose, { Schema } from 'mongoose'
 
-const transactionSchema = new Schema({
+const paymentSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User',
     required: true
   },
-  products: {
-    type: Schema.ObjectId,
-    ref: 'Product',
-    required: true
+  cardNumber: {
+    type: String
+  },
+  expirationDate: {
+    type: String
+  },
+  cardCode: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -19,13 +23,15 @@ const transactionSchema = new Schema({
   }
 })
 
-transactionSchema.methods = {
+paymentSchema.methods = {
   view (full) {
     const view = {
       // simple view
       id: this.id,
       user: this.user.view(full),
-      products: this.products.view(full),
+      cardNumber: this.cardNumber,
+      expirationDate: this.expirationDate,
+      cardCode: this.cardCode,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -37,7 +43,7 @@ transactionSchema.methods = {
   }
 }
 
-const model = mongoose.model('transaction', transactionSchema)
+const model = mongoose.model('Payment', paymentSchema)
 
 export const schema = model.schema
 export default model
