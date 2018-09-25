@@ -50,7 +50,7 @@
     <header>
       <div class="row">
         <div class="col col-md-3">
-          <img src="https://via.placeholder.com/250x300" />
+          <img src="https://i.imgur.com/aEpoMXf.jpg" width="250" />
         </div>
         <div class="col col-md-9">
           <h1>Model: {{ model.title }}</h1>

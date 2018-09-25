@@ -41,7 +41,9 @@
     </div>
     <div class="container">
       <h3>Newest Postings</h3>
-      <ModelCard v-for="model in models" :model="model" />
+      <div class="models">
+        <ModelCard v-for="model in models" :model="model" />
+      </div>
     </div>
   </div>
 </template>
