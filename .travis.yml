@@ -10,9 +10,15 @@ addons:
     packages:
     - gcc-4.8
     - g++-4.8
+
 before_install: cd new_backend
 script:
   - yarn && ls && yarn test -i --coverage
+
+cache:
+  directories:
+  - "$HOME/.npm"
+
 env:
   global:
   - CXX=g++-4.8
